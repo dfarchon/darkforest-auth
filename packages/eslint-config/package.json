@@ -1,0 +1,6 @@
+{
+  "name": "@darkforest-auth/eslint-config",
+  "type": "module",
+  "main": "eslint.config.js",
+  "private": true
+}

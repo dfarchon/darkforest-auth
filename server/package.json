@@ -1,0 +1,14 @@
+{
+  "name": "@darkforest-auth/server",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "NODE_OPTIONS='--experimental-strip-types' NODE_ENV=test mocha 'server/**/*.test.ts'",
+    "lint": "pnpm run lint:eslint && pnpm run lint:typecheck && pnpm run lint:stylelint",
+    "lint:eslint": "eslint",
+    "lint:typecheck": "tsc --skipLibCheck"
+  },
+  "dependencies": {
+    "fastify": "5.2.2"
+  }
+}

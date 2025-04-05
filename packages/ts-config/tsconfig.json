@@ -2,7 +2,6 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "TS Config",
   "compilerOptions": {
-    "noEmit": true,
     "allowJs": true,
     "checkJs": true,
     "allowImportingTsExtensions": true,
@@ -17,13 +16,6 @@
     "noUnusedParameters": true,
     "resolveJsonModule": true,
     "useUnknownInCatchVariables": false,
-    "verbatimModuleSyntax": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ]
-  },
-  "include": [
-    "server/**/*.ts",
-    "scripts/**/*.{ts,js}",
-  ]
+    "verbatimModuleSyntax": true
+  }
 }

@@ -1,0 +1,5 @@
+{
+  "name": "@darkforest-auth/ts-config",
+  "type": "module",
+  "private": true
+}
