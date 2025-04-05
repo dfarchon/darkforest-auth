@@ -1,0 +1,26 @@
+{
+  "name": "darkforest-auth",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Darkforest Auth Server",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Darkforest",
+    "Auth",
+    "Server"
+  ],
+  "engines": {
+    "node": "22.14.0",
+    "pnpm": "10.7.1"
+  },
+  "dependencies": {
+    "fastify": "5.2.2",
+    "typescript": "5.8.3"
+  },
+  "devDependencies": {
+    "@types/node": "22.14.0"
+  }
+}
