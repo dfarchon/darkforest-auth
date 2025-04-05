@@ -28,6 +28,9 @@ async function gracefulShutdown(services: Service[]): Promise<void> {
 }
 
 export function setupGracefulShutdown(services: Service[]): void {
+  // handle termination called via process.exit(code)
+  process.once('exit', () => gracefulShutdown(services));
+
   // exit on termination signals
   for (const signal of ['SIGHUP', 'SIGINT', 'SIGTERM', 'SIGQUIT', 'SIGBREAK']) {
     process.once(signal, () => gracefulShutdown(services));

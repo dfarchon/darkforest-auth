@@ -19,5 +19,5 @@ try {
   await app.listen({ host: '0.0.0.0', port: 3000 });
 } catch (err) {
   console.error(err);
-  setImmediate(() => process.exit(1));
+  process.exit(1);
 }
