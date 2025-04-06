@@ -7,29 +7,29 @@ async function gracefulShutdown(services: Service[]): Promise<void> {
     return;
   }
   exitState = 'exiting';
+
   for (const service of services) {
     await service.close();
   }
-  exitState = 'terminated';
 
   // Properly wait for stdout to drain
-  await new Promise((resolve) => {
+  await new Promise<void>((resolve) => {
     // Check if stdout needs draining
     if (process.stdout.writableLength === 0) {
-      resolve(undefined);
+      resolve();
       return;
     }
 
     // Wait for drain event
-    process.stdout.once('drain', () => {
-      resolve(undefined);
-    });
+    process.stdout.once('drain', resolve);
   });
+
+  exitState = 'terminated';
 }
 
 export function setupGracefulShutdown(services: Service[]): void {
   // handle termination called via process.exit(code)
-  process.once('exit', () => gracefulShutdown(services));
+  process.once('beforeExit', () => gracefulShutdown(services));
 
   // exit on termination signals
   for (const signal of ['SIGHUP', 'SIGINT', 'SIGTERM', 'SIGQUIT', 'SIGBREAK']) {
